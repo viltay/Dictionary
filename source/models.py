@@ -5,7 +5,5 @@ class Dictionary(models.Model):
     original_word = models.CharField(max_length=30)
     translate_word = models.CharField(max_length=30)
 
-
-
     def __str__(self):
         return self.original_word
