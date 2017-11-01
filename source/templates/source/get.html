@@ -4,11 +4,12 @@
     <h2>{{ next_word }}</h2>
     <form action="{% url 'word'%}" method="post">
         {% csrf_token %}
-        <input type="number" value="{% firstof iteration_number '1' %}" name="iteration_number">
-        <input type="number" value="{{ next_word.id }}" name="original_word">
+        <input type="number" value="{% firstof iteration_number '1' %}" name="iteration_number" hidden>
+        <input type="number" value="{{ next_word.id }}" name="original_word" hidden>
         <label for="text">Translate
             <input type="text" name="translation">
         </label>
+        <p>right answers:{{ next_word.counter }}</p>
         <input type="submit" value="submit">
     </form>
 {% endblock %}
